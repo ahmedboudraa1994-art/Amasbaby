@@ -291,13 +291,18 @@ h1 span{
   line-height:1.7;
 }
 .socials{display:flex;justify-content:center;gap:15px}
-.socials span{
+.socials a{
   width:38px;height:38px;border-radius:50%;
   display:grid;place-items:center;
   border:1px solid var(--line);
   background:#fff9f3;
-  color:var(--brown2);
-  font-size:12px;font-weight:900;
+  overflow:hidden;
+}
+.socials img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
 }
 
 .bottomNav{
