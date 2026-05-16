@@ -46,14 +46,25 @@
 
     <section class="productPageHero">
       <div class="productGallery">
-        <div class="mainProductImage">
-          <img src="product-plate.jpg" alt="Coffret repas bébé bambou et silicone rose" />
+        <div class="mainProductImage galleryBox">
+          <button class="galleryArrow galleryPrev" type="button" aria-label="Image précédente">‹</button>
+          <img id="mainProductPhoto" src="product-plate.jpg" alt="Coffret repas bébé bambou et silicone" />
+          <button class="galleryArrow galleryNext" type="button" aria-label="Image suivante">›</button>
         </div>
-        <div class="thumbs">
-          <img src="product-plate.jpg" alt="">
-          <img src="product-bowl.jpg" alt="">
-          <img src="product-bib.jpg" alt="">
-          <img src="product-kit.jpg" alt="">
+
+        <div class="thumbs" id="productThumbs">
+          <button class="thumbButton active" type="button" data-image="product-plate.jpg" aria-label="Photo 1">
+            <img src="product-plate.jpg" alt="">
+          </button>
+          <button class="thumbButton" type="button" data-image="product-bowl.jpg" aria-label="Photo 2">
+            <img src="product-bowl.jpg" alt="">
+          </button>
+          <button class="thumbButton" type="button" data-image="product-bib.jpg" aria-label="Photo 3">
+            <img src="product-bib.jpg" alt="">
+          </button>
+          <button class="thumbButton" type="button" data-image="product-kit.jpg" aria-label="Photo 4">
+            <img src="product-kit.jpg" alt="">
+          </button>
         </div>
       </div>
 

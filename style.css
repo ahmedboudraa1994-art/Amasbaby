@@ -617,3 +617,58 @@ h1 span{
   .iconGrid{grid-template-columns:repeat(2,1fr)}
   .detailRow{padding:22px 16px}
 }
+
+
+.galleryBox{position:relative}
+.galleryArrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:5;
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  border:1px solid rgba(234,216,202,.95);
+  background:rgba(255,253,249,.88);
+  color:var(--brown2);
+  font-size:42px;
+  line-height:1;
+  display:grid;
+  place-items:center;
+  box-shadow:0 10px 28px rgba(80,47,26,.14);
+  cursor:pointer;
+  backdrop-filter:blur(10px);
+}
+.galleryPrev{left:16px}
+.galleryNext{right:16px}
+.thumbButton{
+  border:0;
+  padding:0;
+  background:transparent;
+  border-radius:12px;
+  overflow:hidden;
+  cursor:pointer;
+  opacity:.72;
+}
+.thumbButton.active{
+  opacity:1;
+  outline:3px solid var(--brown);
+  outline-offset:2px;
+}
+.thumbButton img{
+  height:82px;
+  width:100%;
+  object-fit:cover;
+  border-radius:12px;
+  border:1px solid var(--line);
+}
+@media(max-width:820px){
+  .galleryArrow{
+    width:46px;
+    height:46px;
+    font-size:36px;
+  }
+  .galleryPrev{left:10px}
+  .galleryNext{right:10px}
+  .thumbButton img{height:66px}
+}
