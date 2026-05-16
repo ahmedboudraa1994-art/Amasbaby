@@ -672,3 +672,12 @@ h1 span{
   .galleryNext{right:10px}
   .thumbButton img{height:66px}
 }
+
+.bottomNav svg{
+  stroke-width:1.9;
+}
+.bottomNav a.active svg{
+  stroke-width:2.2;
+}
+
+#collections,#about,#contact,#product{scroll-margin-top:120px}
