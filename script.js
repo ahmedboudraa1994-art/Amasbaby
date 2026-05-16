@@ -1,10 +1,6 @@
 
 (function(){
   const translations = {
-    "bambou naturel": "natural bamboo",
-    "bambou & silicone": "bamboo & silicone",
-    "silicone alimentaire": "food-grade silicone",
-    "et sûr pour bébé": "and safe for baby",
     "Livraison rapide via Amazon": "Fast delivery via Amazon",
     "Paiement sécurisé": "Secure payment",
     "Géré par Amazon": "Managed by Amazon",
