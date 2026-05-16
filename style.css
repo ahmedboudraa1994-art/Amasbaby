@@ -683,7 +683,7 @@ h1 span{
 #collections,#about,#contact,#product{scroll-margin-top:120px}
 
 
-/* FINAL FIX - premium included items with correct sizing */
+/* Final cards: tight product photos, white clean background, no broken crops */
 .premiumDetails{
   width:min(1120px,calc(100% - 44px));
   margin:34px auto 0;
@@ -697,7 +697,6 @@ h1 span{
   border-radius:28px;
   padding:34px;
   box-shadow:0 18px 46px rgba(80,47,26,.07);
-  overflow:hidden;
 }
 
 .premiumBox h2{
@@ -708,71 +707,103 @@ h1 span{
   line-height:1.15;
 }
 
-.cleanIncludedGrid{
+.finalIncludedGrid{
   display:grid;
-  grid-template-columns:repeat(5,1fr);
+  grid-template-columns:repeat(2, minmax(0, 1fr));
   gap:18px;
 }
 
-.cleanIncludedCard{
-  min-height:292px;
-  background:#fffdf9;
-  border:1px solid rgba(234,216,202,.92);
-  border-radius:22px;
+.finalIncludedCard{
+  background:#fff;
+  border:1px solid rgba(234,216,202,.95);
+  border-radius:24px;
   overflow:hidden;
   text-align:center;
-  box-shadow:0 12px 30px rgba(80,47,26,.06);
+  box-shadow:0 14px 34px rgba(80,47,26,.06);
+  min-height:295px;
   display:flex;
   flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
 }
 
-.includedImageWrap{
+.finalImageBox{
+  width:100%;
   height:178px;
+  background:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#fffdf9;
-  padding:10px 10px 0;
+  padding:14px 14px 0;
 }
 
-.cleanIncludedCard img{
+.finalImageBox img{
   width:100%;
   height:100%;
   object-fit:contain;
   display:block;
+  background:#fff;
 }
 
-.cleanIncludedCard h3{
-  margin:12px 8px 4px;
-  font-size:18px;
+.finalIncludedCard h3{
+  margin:14px 8px 5px;
+  font-size:22px;
+  line-height:1.1;
   color:var(--text);
-  line-height:1.15;
 }
 
-.cleanIncludedCard p{
-  margin:0 8px 18px;
+.finalIncludedCard p{
+  margin:0 8px 20px;
   color:var(--muted);
-  font-size:14px;
+  font-size:16px;
   line-height:1.35;
 }
 
-.cleanLoveGrid{
+.finalIncludedWide{
+  grid-column:1 / -1;
+  min-height:215px;
+  flex-direction:row;
+  justify-content:center;
+  gap:28px;
+  padding:10px 18px;
+}
+
+.finalIncludedWide .finalImageBox{
+  width:44%;
+  max-width:285px;
+  height:190px;
+  padding:0;
+}
+
+.finalWideText{
+  text-align:left;
+}
+
+.finalWideText h3{
+  margin:0 0 6px;
+}
+
+.finalWideText p{
+  margin:0;
+}
+
+.finalLoveGrid{
   display:grid;
   grid-template-columns:repeat(5,1fr);
   gap:12px;
 }
 
-.cleanLoveGrid article{
+.finalLoveGrid article{
   text-align:center;
   padding:18px 10px;
   border-right:1px solid rgba(234,216,202,.72);
 }
 
-.cleanLoveGrid article:last-child{
+.finalLoveGrid article:last-child{
   border-right:0;
 }
 
-.cleanLoveGrid span{
+.finalLoveGrid span{
   width:62px;
   height:62px;
   display:grid;
@@ -784,18 +815,18 @@ h1 span{
   color:var(--brown2);
 }
 
-.cleanLoveGrid span svg{
+.finalLoveGrid span svg{
   width:30px;
   height:30px;
 }
 
-.cleanLoveGrid strong{
+.finalLoveGrid strong{
   display:block;
   font-size:16px;
   margin-bottom:4px;
 }
 
-.cleanLoveGrid small{
+.finalLoveGrid small{
   display:block;
   color:var(--muted);
   font-size:13px;
@@ -818,46 +849,59 @@ h1 span{
     margin-bottom:20px;
   }
 
-  .cleanIncludedGrid{
-    grid-template-columns:repeat(2,1fr);
+  .finalIncludedGrid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
     gap:14px;
   }
 
-  .cleanIncludedCard{
-    min-height:228px;
-    border-radius:20px;
+  .finalIncludedCard{
+    min-height:222px;
+    border-radius:22px;
   }
 
-  .includedImageWrap{
-    height:126px;
+  .finalImageBox{
+    height:128px;
     padding:8px 8px 0;
   }
 
-  .cleanIncludedCard h3{
-    font-size:17px;
-    margin:8px 6px 4px;
+  .finalIncludedCard h3{
+    font-size:18px;
+    margin:9px 6px 4px;
   }
 
-  .cleanIncludedCard p{
+  .finalIncludedCard p{
     font-size:13px;
     margin-bottom:13px;
   }
 
-  .includedCardWide{
-    grid-column:auto;
+  .finalIncludedWide{
+    min-height:166px;
+    gap:12px;
+    padding:12px;
   }
 
-  .cleanLoveGrid{
+  .finalIncludedWide .finalImageBox{
+    width:48%;
+    height:142px;
+    max-width:none;
+  }
+
+  .finalWideText{
+    width:48%;
+    text-align:left;
+  }
+
+  .finalLoveGrid{
     grid-template-columns:repeat(2,1fr);
     gap:0;
   }
 
-  .cleanLoveGrid article{
+  .finalLoveGrid article{
     border-right:0;
     border-bottom:1px solid rgba(234,216,202,.70);
   }
 
-  .cleanLoveGrid article:last-child{
+  .finalLoveGrid article:last-child{
     grid-column:1 / -1;
     border-bottom:0;
   }
