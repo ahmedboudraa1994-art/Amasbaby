@@ -1,8 +1,8 @@
 (function(){
   const translations = {
     "Livraison rapide via Amazon": "Fast delivery via Amazon",
-    "Paiement sécurisé": "Secure payment",
-    "Géré par Amazon": "Managed by Amazon",
+    "Sélection premium": "Premium selection",
+    "Qualité soignée": "Carefully selected",
     "Pensé pour les premiers moments": "Designed for the first moments",
     "Des essentiels": "Natural essentials",
     "naturels pour bébé,": "for baby,",
