@@ -4,49 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Coffret repas bébé | Amas Baby</title>
-  <meta name="description" content="Coffret repas bébé en bambou et silicone — naturel, durable, conçu pour les premiers repas." />
-  <link rel="icon" href="logo.png" type="image/png" />
-  <meta property="og:title" content="Coffret Repas Bébé | Amas Baby" />
-  <meta property="og:description" content="Un coffret naturel et durable, pensé pour les premiers repas de bébé." />
-  <meta property="og:image" content="product-kit.jpg" />
-  <meta property="og:type" content="website" />
-  
-  <meta name="description" content="Coffret repas bébé en bambou naturel et silicone alimentaire." />
+  <meta name="description" content="Coffret repas bébé en bambou naturel et silicone alimentaire — sans BPA, durable, conçu pour les premiers repas." />
   <meta name="theme-color" content="#a96f43" />
   <link rel="icon" href="favicon.ico" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Coffret repas bébé | Amas Baby" />
-  <meta property="og:description" content="Coffret repas bébé en bambou naturel et silicone alimentaire." />
+  <meta property="og:title" content="Coffret Repas Bébé | Amas Baby" />
+  <meta property="og:description" content="Un coffret naturel et durable, pensé pour les premiers repas de bébé." />
   <meta property="og:image" content="product-kit.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body id="home">
   <a class="skipLink" href="#main">Aller au contenu</a>
 
   <div class="announcement">
-    <span class="lineIcon" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="18" cy="17" r="2"/></svg>
-    </span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="18" cy="17" r="2"/></svg>
     Livraison rapide via Amazon
   </div>
 
   <header class="siteHeader">
-    <a class="menuBtn" href="index.html" aria-label="Retour accueil">
+    <a class="menuBtn" href="index.html" aria-label="Retour à l'accueil">
       <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
     </a>
     <a href="index.html" class="logoLink" aria-label="Amas Baby accueil">
-      <img src="logo.png" alt="Amas Baby" />
+      <img src="logo.png" alt="Amas Baby" width="148" height="60" />
     </a>
-    <button class="langBtn" type="button" aria-label="Switch language">EN</button>
+    <button class="langBtn" type="button" aria-label="Changer la langue">EN</button>
   </header>
 
   <main id="main">
     <section class="hero">
-      <div class="heroCopy">
+      <div class="heroCopy reveal">
         <p class="eyebrow">Catégorie repas</p>
         <h1>Les essentiels repas<br><span>pour accompagner bébé avec douceur</span></h1>
         <p class="heroText">Un coffret naturel et durable, pensé pour les premiers repas de bébé.</p>
@@ -57,31 +47,39 @@
         </div>
       </div>
       <div class="heroImage">
-        <img src="hero.jpg" alt="Coffret repas bébé" />
+        <img src="hero.jpg" alt="Coffret repas bébé Amas Baby" loading="eager" />
         <div class="badge">Repas<br>Bébé</div>
       </div>
     </section>
 
-    <section class="productPageHero">
+    <section class="productPageHero reveal">
       <div class="productGallery">
         <div class="mainProductImage galleryBox">
           <button class="galleryArrow galleryPrev" type="button" aria-label="Image précédente">‹</button>
-          <img id="mainProductPhoto" src="product-plate.jpg" alt="Coffret repas bébé bambou et silicone" />
+          <img id="mainProductPhoto" src="included-plate.jpg" alt="Coffret repas bébé bambou et silicone" />
           <button class="galleryArrow galleryNext" type="button" aria-label="Image suivante">›</button>
         </div>
+        <!-- Thumbs (desktop) -->
         <div class="thumbs" id="productThumbs">
-          <button class="thumbButton active" type="button" data-image="product-plate.jpg" aria-label="Photo 1">
-            <img src="product-plate.jpg" alt="">
+          <button class="thumbButton active" type="button" data-image="included-plate.jpg" aria-label="Assiette">
+            <img src="included-plate.jpg" alt="Assiette" loading="lazy" />
           </button>
-          <button class="thumbButton" type="button" data-image="product-bowl.jpg" aria-label="Photo 2">
-            <img src="product-bowl.jpg" alt="">
+          <button class="thumbButton" type="button" data-image="included-bowl.jpg" aria-label="Bol">
+            <img src="included-bowl.jpg" alt="Bol" loading="lazy" />
           </button>
-          <button class="thumbButton" type="button" data-image="product-bib.jpg" aria-label="Photo 3">
-            <img src="product-bib.jpg" alt="">
+          <button class="thumbButton" type="button" data-image="included-bib.jpg" aria-label="Bavoir">
+            <img src="included-bib.jpg" alt="Bavoir" loading="lazy" />
           </button>
-          <button class="thumbButton" type="button" data-image="product-kit.jpg" aria-label="Photo 4">
-            <img src="product-kit.jpg" alt="">
+          <button class="thumbButton" type="button" data-image="product-kit.jpg" aria-label="Kit complet">
+            <img src="product-kit.jpg" alt="Kit complet" loading="lazy" />
           </button>
+        </div>
+        <!-- Dots (mobile) -->
+        <div class="galleryDots" id="galleryDots" aria-hidden="true">
+          <button class="galleryDot active" type="button"></button>
+          <button class="galleryDot" type="button"></button>
+          <button class="galleryDot" type="button"></button>
+          <button class="galleryDot" type="button"></button>
         </div>
       </div>
 
@@ -89,66 +87,67 @@
         <p class="breadcrumb"><a href="index.html">Accueil</a> › Repas</p>
         <h1>Coffret Repas Bébé Bambou &amp; Silicone</h1>
         <p class="price">54,99 $ CAD</p>
-
         <div class="miniTrust">
-          <div><svg viewBox="0 0 24 24"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="18" cy="17" r="2"/></svg><span>Livraison rapide<br>via Amazon</span></div>
-          <div><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>Sélection premium<br>qualité soignée</span></div>
+          <div>
+            <svg viewBox="0 0 24 24"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="18" cy="17" r="2"/></svg>
+            <span>Livraison rapide<br>via Amazon</span>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            <span>Sélection premium<br>qualité soignée</span>
+          </div>
         </div>
-
         <p class="colorsLabel">Couleur</p>
         <div class="colorPills">
           <span class="selected">Rose</span>
           <span>Vert sauge</span>
           <span>Beige</span>
         </div>
-
         <a class="amazonProductBtn" href="https://www.amazon.ca/" target="_blank" rel="noreferrer">
           Voir sur Amazon
         </a>
-
         <p class="productDesc">
           Un coffret complet et durable pour accompagner bébé à chaque repas.
-          Conçu avec des matériaux naturels et sûrs, pour des moments simples,
-          doux et agréables.
+          Conçu avec des matériaux naturels et sûrs, pour des moments simples, doux et agréables.
         </p>
       </article>
     </section>
 
     <section class="detailsPanel premiumDetails">
-      <div class="premiumBox">
+      <div class="premiumBox reveal">
         <h2>Inclus dans le coffret</h2>
-        <div class="includedGrid finalIncludedGrid">
+        <div class="finalIncludedGrid stagger">
           <article class="finalIncludedCard">
             <div class="finalImageBox">
-              <img src="included-plate.jpg" alt="Assiette en bambou naturel">
+              <img src="included-plate.jpg" alt="Assiette en bambou naturel" loading="lazy" />
             </div>
             <h3>Assiette</h3>
             <p>bambou naturel</p>
           </article>
           <article class="finalIncludedCard">
             <div class="finalImageBox">
-              <img src="included-bowl.jpg" alt="Bol en bambou naturel">
+              <img src="included-bowl.jpg" alt="Bol en bambou avec ventouse silicone" loading="lazy" />
             </div>
             <h3>Bol</h3>
             <p>bambou naturel</p>
           </article>
           <article class="finalIncludedCard">
             <div class="finalImageBox">
-              <img src="included-spoon.jpg" alt="Cuillère bambou et silicone">
+              <img src="included-spoon.jpg" alt="Cuillère bambou et silicone" loading="lazy" />
             </div>
             <h3>Cuillère</h3>
             <p>bambou &amp; silicone</p>
           </article>
           <article class="finalIncludedCard">
             <div class="finalImageBox">
-              <img src="included-fork.jpg" alt="Fourchette bambou et silicone">
+              <img src="included-fork.jpg" alt="Fourchette bambou et silicone" loading="lazy" />
             </div>
             <h3>Fourchette</h3>
             <p>bambou &amp; silicone</p>
           </article>
           <article class="finalIncludedCard finalIncludedWide">
             <div class="finalImageBox">
-              <img src="included-bib.jpg" alt="Bavoir silicone alimentaire">
+              <img src="included-bib.jpg" alt="Bavoir silicone alimentaire Amas Baby" loading="lazy" />
             </div>
             <div class="finalWideText">
               <h3>Bavoir</h3>
@@ -158,9 +157,9 @@
         </div>
       </div>
 
-      <div class="premiumBox parentLoveBox">
+      <div class="premiumBox reveal">
         <h2>Pourquoi les parents l'adorent</h2>
-        <div class="loveGrid finalLoveGrid">
+        <div class="finalLoveGrid stagger">
           <article>
             <span><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="M9 12l2 2 4-5"/></svg></span>
             <strong>Sans BPA</strong>
@@ -190,7 +189,7 @@
       </div>
     </section>
 
-    <section class="faq">
+    <section class="faq reveal">
       <details>
         <summary>À partir de quel âge ?</summary>
         <p>Le coffret est pensé pour les premiers repas de bébé, généralement autour de 4 mois et plus.</p>
@@ -207,8 +206,8 @@
   </main>
 
   <footer id="contact" class="footer">
-    <a href="index.html"><img src="logo.png" alt="Amas Baby" /></a>
-    <nav class="footerLinks" aria-label="Liens footer">
+    <a href="index.html"><img src="logo.png" alt="Amas Baby" width="100" loading="lazy" /></a>
+    <nav class="footerLinks" aria-label="Liens utiles">
       <a href="repas.html">Nos produits</a>
       <a href="index.html#collections">Collections</a>
       <a href="index.html#about">À propos</a>
@@ -216,14 +215,14 @@
     </nav>
     <p>Amas Baby sélectionne des essentiels bébé doux, sûrs et de qualité, pour des moments inoubliables.</p>
     <div class="socials" aria-label="Réseaux sociaux">
-      <a href="#" aria-label="Instagram"><img src="social-instagram.png" alt="Instagram"></a>
-      <a href="#" aria-label="TikTok"><img src="social-tiktok.png" alt="TikTok"></a>
-      <a href="#" aria-label="Facebook"><img src="social-facebook.png" alt="Facebook"></a>
+      <a href="#" aria-label="Instagram"><img src="social-instagram.png" alt="Instagram" loading="lazy" /></a>
+      <a href="#" aria-label="TikTok"><img src="social-tiktok.png" alt="TikTok" loading="lazy" /></a>
+      <a href="#" aria-label="Facebook"><img src="social-facebook.png" alt="Facebook" loading="lazy" /></a>
     </div>
     <p class="footerCopy">© 2025 Amas Baby. Tous droits réservés.</p>
   </footer>
 
-  <nav class="bottomNav" aria-label="Navigation mobile">
+  <nav class="bottomNav" aria-label="Navigation principale">
     <a href="index.html">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1v-8.5Z"/></svg>
       <small>Accueil</small>

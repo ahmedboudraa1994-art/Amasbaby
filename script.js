@@ -1,186 +1,217 @@
 (function(){
-  const translations = {
-    "Livraison rapide via Amazon": "Fast delivery via Amazon",
-    "Sélection premium": "Premium selection",
-    "Qualité soignée": "Carefully selected",
-    "Pensé pour les premiers moments": "Designed for the first moments",
-    "Des essentiels": "Natural essentials",
-    "naturels pour bébé,": "for baby,",
-    "avec amour ♡": "with love ♡",
-    "Des produits sûrs, durables et conçus pour accompagner bébé à chaque étape de ses premiers moments.": "Safe, durable products designed to support baby at every stage of their first moments.",
-    "Acheter sur Amazon": "Shop on Amazon",
-    "En savoir plus": "Learn more",
-    "Notre premier essentiel": "Our first essential",
-    "Le kit repas en bois": "The wooden feeding set",
-    "Voir la page Repas": "View meals page",
-    "Des collections à venir ♡": "Coming soon collections ♡",
-    "Repas": "Meals",
-    "Découvrir": "Discover",
-    "Sommeil": "Sleep",
-    "Bain": "Bath",
-    "Jouets": "Toys",
-    "Accessoires": "Accessories",
-    "Bientôt disponible": "Coming soon",
-    "Livraison rapide": "Fast delivery",
-    "Via Amazon": "Via Amazon",
-    "Retours simples": "Simple returns",
-    "Selon politique Amazon": "According to Amazon policy",
-    "Service client": "Customer service",
-    "À votre écoute": "Here to help",
-    "Amas Baby sélectionne des essentiels bébé doux, sûrs et de qualité, pour des moments inoubliables.": "Amas Baby selects soft, safe, quality baby essentials for unforgettable moments.",
-    "Nos produits": "Our products",
-    "Collections": "Collections",
-    "À propos": "About",
-    "Contact": "Contact",
-    "Accueil": "Home",
-    "Produit": "Product",
-    "© 2025 Amas Baby. Tous droits réservés.": "© 2025 Amas Baby. All rights reserved.",
-    "Catégorie repas": "Meals category",
-    "Les essentiels repas": "Mealtime essentials",
-    "pour accompagner bébé avec douceur": "to support baby with softness",
-    "Un coffret naturel et durable, pensé pour les premiers repas de bébé.": "A natural and durable set, designed for baby's first meals.",
-    "Voir sur Amazon": "View on Amazon",
-    "Coffret Repas Bébé Bambou & Silicone": "Baby Bamboo & Silicone Feeding Set",
-    "Couleur": "Color",
-    "Rose": "Pink",
-    "Vert sauge": "Sage green",
-    "Beige": "Beige",
-    "Un coffret complet et durable pour accompagner bébé à chaque repas. Conçu avec des matériaux naturels et sûrs, pour des moments simples, doux et agréables.": "A complete and durable set to support baby at every meal. Made with natural and safe materials for simple, soft and pleasant mealtimes.",
-    "Inclus dans le coffret": "Included in the set",
-    "Assiette": "Plate",
-    "bambou naturel": "natural bamboo",
-    "Bol": "Bowl",
-    "Cuillère": "Spoon",
-    "bambou & silicone": "bamboo & silicone",
-    "Fourchette": "Fork",
-    "Bavoir": "Bib",
-    "silicone alimentaire": "food-grade silicone",
-    "Pourquoi les parents l'adorent": "Why parents love it",
-    "Sans BPA": "BPA free",
-    "et sûr pour bébé": "and safe for baby",
-    "Bambou": "Bamboo",
-    "naturel": "natural",
-    "Facile": "Easy",
-    "à nettoyer": "to clean",
-    "Cadeau": "Gift",
-    "idéal": "ideal",
-    "Conçu": "Made",
-    "avec amour": "with love",
-    "À partir de quel âge ?": "From what age?",
-    "Le coffret est pensé pour les premiers repas de bébé, généralement autour de 4 mois et plus.": "The set is designed for baby's first meals, generally around 4 months and up.",
-    "Compatible lave-vaisselle ?": "Dishwasher safe?",
-    "Les éléments silicone sont faciles à nettoyer. Pour le bambou, un lavage doux à la main est recommandé.": "Silicone pieces are easy to clean. For bamboo, gentle hand washing is recommended.",
-    "Le coffret est-il livré via Amazon ?": "Is the set delivered via Amazon?",
-    "Oui, le bouton \"Voir sur Amazon\" dirige vers la fiche produit Amazon.": "Yes, the \"View on Amazon\" button leads to the Amazon product page.",
-    "Naturel": "Natural",
-    "& Durable": "& Durable",
-    "Repas\nBébé": "Baby\nMeals",
-    "Disponible": "Available",
-    "Sans BPA": "BPA Free",
-    "Matériaux naturels": "Natural materials",
-    "Facile à nettoyer": "Easy to clean",
-    "Conçu avec amour": "Made with love"
-  };
+  'use strict';
 
-  const reverseTranslations = Object.fromEntries(
-    Object.entries(translations).map(([fr,en]) => [en,fr])
-  );
-
-  function walkTextNodes(root, callback){
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-      acceptNode(node){
-        if(!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
-        if(node.parentElement && node.parentElement.closest("script,style,svg")) return NodeFilter.FILTER_REJECT;
-        return NodeFilter.FILTER_ACCEPT;
-      }
-    });
-    const nodes = [];
-    while(walker.nextNode()) nodes.push(walker.currentNode);
-    nodes.forEach(callback);
+  /* ══════════════════════════════════════════
+     1. HEADER — shrink on scroll
+  ══════════════════════════════════════════ */
+  function initHeaderScroll(){
+    const header = document.querySelector('.siteHeader');
+    if(!header) return;
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 60);
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
   }
 
-  function switchLanguage(){
-    const btn = document.querySelector(".langBtn");
-    const current = document.documentElement.lang || "fr";
-    const next = current === "fr" ? "en" : "fr";
-    const dict = next === "en" ? translations : reverseTranslations;
-
-    walkTextNodes(document.body, node => {
-      const trimmed = node.nodeValue.trim();
-      if(dict[trimmed]){
-        const leading = node.nodeValue.match(/^\s*/)[0];
-        const trailing = node.nodeValue.match(/\s*$/)[0];
-        node.nodeValue = leading + dict[trimmed] + trailing;
-      }
-    });
-
-    document.documentElement.lang = next;
-    if(btn) btn.textContent = next === "fr" ? "EN" : "FR";
+  /* ══════════════════════════════════════════
+     2. SCROLL REVEAL — IntersectionObserver
+  ══════════════════════════════════════════ */
+  function initScrollReveal(){
+    const els = document.querySelectorAll('.reveal, .stagger');
+    if(!els.length) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(el => io.observe(el));
   }
 
-  function initLanguageToggle(){
-    const btn = document.querySelector(".langBtn");
-    if(btn) btn.addEventListener("click", switchLanguage);
-  }
+  /* ══════════════════════════════════════════
+     3. GALLERY — arrows + thumbs + swipe + dots
+  ══════════════════════════════════════════ */
+  function initGallery(){
+    const galleryImages = [
+      'included-plate.jpg',
+      'included-bowl.jpg',
+      'included-bib.jpg',
+      'product-kit.jpg'
+    ];
+    let idx = 0;
+    let touchStartX = 0;
 
-  function initAmasGallery(){
-    const galleryImages = ["product-plate.jpg","product-bowl.jpg","product-bib.jpg","product-kit.jpg"];
-    let galleryIndex = 0;
+    const mainPhoto = document.getElementById('mainProductPhoto');
+    const prev      = document.querySelector('.galleryPrev');
+    const next      = document.querySelector('.galleryNext');
+    const thumbBtns = document.querySelectorAll('.thumbButton');
+    const dots      = document.querySelectorAll('.galleryDot');
 
-    const mainPhoto = document.getElementById("mainProductPhoto");
-    const prev = document.querySelector(".galleryPrev");
-    const next = document.querySelector(".galleryNext");
-    const thumbs = document.querySelectorAll(".thumbButton");
+    if(!mainPhoto) return;
 
-    if(!mainPhoto || !prev || !next || !thumbs.length) return;
-
-    function updateGallery(index){
-      galleryIndex = (index + galleryImages.length) % galleryImages.length;
-      mainPhoto.style.opacity = "0";
+    function goTo(newIdx){
+      idx = (newIdx + galleryImages.length) % galleryImages.length;
+      mainPhoto.style.opacity = '0';
       setTimeout(() => {
-        mainPhoto.src = galleryImages[galleryIndex];
-        mainPhoto.style.opacity = "1";
-      }, 180);
-      thumbs.forEach((thumb, i) => thumb.classList.toggle("active", i === galleryIndex));
+        mainPhoto.src = galleryImages[idx];
+        mainPhoto.style.opacity = '1';
+      }, 200);
+      thumbBtns.forEach((t,i) => t.classList.toggle('active', i === idx));
+      dots.forEach((d,i) => d.classList.toggle('active', i === idx));
     }
 
-    prev.addEventListener("click", () => updateGallery(galleryIndex - 1));
-    next.addEventListener("click", () => updateGallery(galleryIndex + 1));
-    thumbs.forEach((thumb, i) => thumb.addEventListener("click", () => updateGallery(i)));
+    if(prev) prev.addEventListener('click', () => goTo(idx - 1));
+    if(next) next.addEventListener('click', () => goTo(idx + 1));
+    thumbBtns.forEach((t,i) => t.addEventListener('click', () => goTo(i)));
+    dots.forEach((d,i) => d.addEventListener('click', () => goTo(i)));
+
+    /* Swipe support */
+    const box = document.querySelector('.mainProductImage');
+    if(box){
+      box.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].clientX;
+      }, {passive:true});
+      box.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if(Math.abs(dx) > 44){
+          goTo(dx < 0 ? idx + 1 : idx - 1);
+        }
+      }, {passive:true});
+    }
   }
 
+  /* ══════════════════════════════════════════
+     4. COLOR PILLS
+  ══════════════════════════════════════════ */
   function initColorPills(){
-    const pills = document.querySelectorAll(".colorPills span");
+    const pills = document.querySelectorAll('.colorPills span');
     pills.forEach(pill => {
-      pill.addEventListener("click", () => {
-        pills.forEach(p => p.classList.remove("selected"));
-        pill.classList.add("selected");
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('selected'));
+        pill.classList.add('selected');
       });
     });
   }
 
+  /* ══════════════════════════════════════════
+     5. SMOOTH SCROLL
+  ══════════════════════════════════════════ */
   function initSmoothScroll(){
     document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener("click", e => {
-        const target = document.querySelector(link.getAttribute("href"));
+      link.addEventListener('click', e => {
+        const href = link.getAttribute('href');
+        if(href === '#home'){ return; } // let browser handle — scrolls to top naturally
+        const target = document.querySelector(href);
         if(target){
           e.preventDefault();
-          target.scrollIntoView({behavior:"smooth", block:"start"});
+          target.scrollIntoView({behavior:'smooth', block:'start'});
         }
       });
     });
   }
 
-  function init(){
-    initLanguageToggle();
-    initAmasGallery();
-    initColorPills();
-    initSmoothScroll();
+  /* ══════════════════════════════════════════
+     6. LANGUAGE TOGGLE — FR ↔ EN
+  ══════════════════════════════════════════ */
+  const translations = {
+    "Livraison rapide via Amazon":"Fast delivery via Amazon",
+    "Pensé pour les premiers moments":"Designed for the first moments",
+    "Des essentiels":"Natural essentials",
+    "naturels pour bébé,":"for baby,",
+    "avec amour ♡":"with love ♡",
+    "Des produits sûrs, durables et conçus pour accompagner bébé à chaque étape de ses premiers moments.":"Safe, durable products designed to support baby at every stage of their first moments.",
+    "Acheter sur Amazon":"Shop on Amazon",
+    "En savoir plus":"Learn more",
+    "Notre premier essentiel":"Our first essential",
+    "Le kit repas en bois":"The wooden feeding set",
+    "Voir la page Repas":"View meals page",
+    "Des collections à venir ♡":"Coming soon ♡",
+    "Repas":"Meals","Découvrir":"Discover",
+    "Sommeil":"Sleep","Bain":"Bath","Jouets":"Toys","Accessoires":"Accessories",
+    "Bientôt disponible":"Coming soon",
+    "Livraison rapide":"Fast delivery","Via Amazon":"Via Amazon",
+    "Sélection premium":"Premium selection","Qualité soignée":"Carefully crafted",
+    "Retours simples":"Easy returns","Selon politique Amazon":"Per Amazon policy",
+    "Service client":"Customer service","À votre écoute":"Here for you",
+    "Amas Baby sélectionne des essentiels bébé doux, sûrs et de qualité, pour des moments inoubliables.":"Amas Baby selects soft, safe, quality baby essentials for unforgettable moments.",
+    "Nos produits":"Our products","Collections":"Collections","À propos":"About","Contact":"Contact",
+    "Accueil":"Home","Produit":"Product",
+    "© 2025 Amas Baby. Tous droits réservés.":"© 2025 Amas Baby. All rights reserved.",
+    "Catégorie repas":"Meals category",
+    "Les essentiels repas":"Mealtime essentials",
+    "pour accompagner bébé avec douceur":"to support baby gently",
+    "Un coffret naturel et durable, pensé pour les premiers repas de bébé.":"A natural, durable set for baby's first meals.",
+    "Voir sur Amazon":"View on Amazon",
+    "Coffret Repas Bébé Bambou & Silicone":"Baby Bamboo & Silicone Feeding Set",
+    "Couleur":"Color","Rose":"Pink","Vert sauge":"Sage green","Beige":"Beige",
+    "Un coffret complet et durable pour accompagner bébé à chaque repas. Conçu avec des matériaux naturels et sûrs, pour des moments simples, doux et agréables.":"A complete set for every mealtime — made with natural, safe materials.",
+    "Inclus dans le coffret":"Included in the set",
+    "Assiette":"Plate","bambou naturel":"natural bamboo",
+    "Bol":"Bowl","Cuillère":"Spoon","bambou & silicone":"bamboo & silicone",
+    "Fourchette":"Fork","Bavoir":"Bib","silicone alimentaire":"food-grade silicone",
+    "Pourquoi les parents l'adorent":"Why parents love it",
+    "Sans BPA":"BPA free","et sûr pour bébé":"safe for baby",
+    "Cadeau":"Gift","idéal":"ideal",
+    "À partir de quel âge ?":"From what age?",
+    "Le coffret est pensé pour les premiers repas de bébé, généralement autour de 4 mois et plus.":"Designed for baby's first meals, generally from 4 months.",
+    "Compatible lave-vaisselle ?":"Dishwasher safe?",
+    "Les éléments silicone sont faciles à nettoyer. Pour le bambou, un lavage doux à la main est recommandé.":"Silicone pieces are easy to clean. Bamboo should be hand washed gently.",
+    "Le coffret est-il livré via Amazon ?":"Is the set shipped via Amazon?",
+    "Oui, le bouton \"Voir sur Amazon\" dirige vers la fiche produit Amazon.":"Yes, the \"View on Amazon\" button links to the Amazon product page.",
+    "Naturel":"Natural","& Durable":"& Durable","Disponible":"Available",
+    "Matériaux naturels":"Natural materials",
+    "Facile à nettoyer":"Easy to clean","Conçu avec amour":"Made with love"
+  };
+  const reverseTranslations = Object.fromEntries(Object.entries(translations).map(([fr,en])=>[en,fr]));
+
+  function walkText(root, cb){
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(n){
+        if(!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        if(n.parentElement?.closest('script,style,svg')) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes=[];
+    while(w.nextNode()) nodes.push(w.currentNode);
+    nodes.forEach(cb);
   }
 
-  if(document.readyState === "loading"){
-    document.addEventListener("DOMContentLoaded", init);
-  }else{
-    init();
+  function initLang(){
+    const btn = document.querySelector('.langBtn');
+    if(!btn) return;
+    btn.addEventListener('click', () => {
+      const cur = document.documentElement.lang || 'fr';
+      const next = cur === 'fr' ? 'en' : 'fr';
+      const dict = next === 'en' ? translations : reverseTranslations;
+      walkText(document.body, node => {
+        const t = node.nodeValue.trim();
+        if(dict[t]){
+          const lead = node.nodeValue.match(/^\s*/)[0];
+          const tail = node.nodeValue.match(/\s*$/)[0];
+          node.nodeValue = lead + dict[t] + tail;
+        }
+      });
+      document.documentElement.lang = next;
+      btn.textContent = next === 'fr' ? 'EN' : 'FR';
+    });
   }
+
+  /* ══════════════════════════════════════════
+     INIT
+  ══════════════════════════════════════════ */
+  function init(){
+    initHeaderScroll();
+    initScrollReveal();
+    initGallery();
+    initColorPills();
+    initSmoothScroll();
+    initLang();
+  }
+
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', init)
+    : init();
+
 })();
