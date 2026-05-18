@@ -56,30 +56,30 @@
       <div class="productGallery">
         <div class="mainProductImage galleryBox">
           <button class="galleryArrow galleryPrev" type="button" aria-label="Image précédente">‹</button>
-          <img id="mainProductPhoto" src="included-plate.jpg" alt="Coffret repas bébé bambou et silicone" />
+          <img id="mainProductPhoto" src="product-plate.jpg" alt="Coffret repas bébé couleur beige" />
           <button class="galleryArrow galleryNext" type="button" aria-label="Image suivante">›</button>
         </div>
-        <!-- Thumbs (desktop) -->
-        <div class="thumbs" id="productThumbs">
-          <button class="thumbButton active" type="button" data-image="included-plate.jpg" aria-label="Assiette">
-            <img src="included-plate.jpg" alt="Assiette" loading="lazy" />
+
+        <div class="thumbs" id="productThumbs" aria-label="Photos du coffret">
+          <button class="thumbButton active" type="button" data-gallery-index="0" aria-label="Couleur beige naturel">
+            <img src="product-plate.jpg" alt="Coffret repas bébé beige naturel" loading="lazy" />
           </button>
-          <button class="thumbButton" type="button" data-image="included-bowl.jpg" aria-label="Bol">
-            <img src="included-bowl.jpg" alt="Bol" loading="lazy" />
+          <button class="thumbButton" type="button" data-gallery-index="1" aria-label="Couleur rose doux">
+            <img src="product-bib.jpg" alt="Coffret repas bébé rose doux" loading="lazy" />
           </button>
-          <button class="thumbButton" type="button" data-image="included-bib.jpg" aria-label="Bavoir">
-            <img src="included-bib.jpg" alt="Bavoir" loading="lazy" />
+          <button class="thumbButton" type="button" data-gallery-index="2" aria-label="Couleur vert sauge">
+            <img src="product-bowl.jpg" alt="Coffret repas bébé vert sauge" loading="lazy" />
           </button>
-          <button class="thumbButton" type="button" data-image="product-kit.jpg" aria-label="Kit complet">
-            <img src="product-kit.jpg" alt="Kit complet" loading="lazy" />
+          <button class="thumbButton" type="button" data-gallery-index="3" aria-label="Packaging et détails">
+            <img src="product-kit.jpg" alt="Packaging et détails du coffret repas bébé" loading="lazy" />
           </button>
         </div>
-        <!-- Dots (mobile) -->
+
         <div class="galleryDots" id="galleryDots" aria-hidden="true">
-          <button class="galleryDot active" type="button"></button>
-          <button class="galleryDot" type="button"></button>
-          <button class="galleryDot" type="button"></button>
-          <button class="galleryDot" type="button"></button>
+          <button class="galleryDot active" type="button" data-gallery-index="0"></button>
+          <button class="galleryDot" type="button" data-gallery-index="1"></button>
+          <button class="galleryDot" type="button" data-gallery-index="2"></button>
+          <button class="galleryDot" type="button" data-gallery-index="3"></button>
         </div>
       </div>
 
@@ -98,10 +98,16 @@
           </div>
         </div>
         <p class="colorsLabel">Couleur</p>
-        <div class="colorPills">
-          <span class="selected">Rose</span>
-          <span>Vert sauge</span>
-          <span>Beige</span>
+        <div class="colorPills" aria-label="Choisir une couleur">
+          <button class="colorPill selected" type="button" data-gallery-index="0" aria-pressed="true">
+            <span class="swatch swatchBeige"></span> Beige naturel
+          </button>
+          <button class="colorPill" type="button" data-gallery-index="1" aria-pressed="false">
+            <span class="swatch swatchRose"></span> Rose doux
+          </button>
+          <button class="colorPill" type="button" data-gallery-index="2" aria-pressed="false">
+            <span class="swatch swatchSage"></span> Vert sauge
+          </button>
         </div>
         <a class="amazonProductBtn" href="https://www.amazon.ca/" target="_blank" rel="noreferrer">
           Voir sur Amazon

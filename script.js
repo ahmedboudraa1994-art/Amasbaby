@@ -34,11 +34,12 @@
   ══════════════════════════════════════════ */
   function initGallery(){
     const galleryImages = [
-      'included-plate.jpg',
-      'included-bowl.jpg',
-      'included-bib.jpg',
-      'product-kit.jpg'
+      {src:'product-plate.jpg', label:'Beige naturel', color:'beige'},
+      {src:'product-bib.jpg', label:'Rose doux', color:'rose'},
+      {src:'product-bowl.jpg', label:'Vert sauge', color:'sage'},
+      {src:'product-kit.jpg', label:'Packaging et détails', color:'kit'}
     ];
+
     let idx = 0;
     let touchStartX = 0;
 
@@ -47,31 +48,57 @@
     const next      = document.querySelector('.galleryNext');
     const thumbBtns = document.querySelectorAll('.thumbButton');
     const dots      = document.querySelectorAll('.galleryDot');
+    const colorBtns = document.querySelectorAll('.colorPill');
 
     if(!mainPhoto) return;
 
-    function goTo(newIdx){
-      idx = (newIdx + galleryImages.length) % galleryImages.length;
-      mainPhoto.style.opacity = '0';
-      setTimeout(() => {
-        mainPhoto.src = galleryImages[idx];
-        mainPhoto.style.opacity = '1';
-      }, 200);
+    function setActiveState(){
       thumbBtns.forEach((t,i) => t.classList.toggle('active', i === idx));
       dots.forEach((d,i) => d.classList.toggle('active', i === idx));
+
+      colorBtns.forEach(btn => {
+        const colorIndex = Number(btn.dataset.galleryIndex);
+        const active = colorIndex === idx;
+        btn.classList.toggle('selected', active);
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+    }
+
+    function goTo(newIdx){
+      idx = (newIdx + galleryImages.length) % galleryImages.length;
+      const nextImage = galleryImages[idx];
+
+      mainPhoto.style.opacity = '0';
+      setTimeout(() => {
+        mainPhoto.src = nextImage.src;
+        mainPhoto.alt = 'Coffret repas bébé ' + nextImage.label;
+        mainPhoto.style.opacity = '1';
+      }, 160);
+
+      setActiveState();
     }
 
     if(prev) prev.addEventListener('click', () => goTo(idx - 1));
     if(next) next.addEventListener('click', () => goTo(idx + 1));
-    thumbBtns.forEach((t,i) => t.addEventListener('click', () => goTo(i)));
-    dots.forEach((d,i) => d.addEventListener('click', () => goTo(i)));
 
-    /* Swipe support */
+    thumbBtns.forEach((t,i) => {
+      t.addEventListener('click', () => goTo(Number(t.dataset.galleryIndex ?? i)));
+    });
+
+    dots.forEach((d,i) => {
+      d.addEventListener('click', () => goTo(Number(d.dataset.galleryIndex ?? i)));
+    });
+
+    colorBtns.forEach(btn => {
+      btn.addEventListener('click', () => goTo(Number(btn.dataset.galleryIndex)));
+    });
+
     const box = document.querySelector('.mainProductImage');
     if(box){
       box.addEventListener('touchstart', e => {
         touchStartX = e.touches[0].clientX;
       }, {passive:true});
+
       box.addEventListener('touchend', e => {
         const dx = e.changedTouches[0].clientX - touchStartX;
         if(Math.abs(dx) > 44){
@@ -79,19 +106,15 @@
         }
       }, {passive:true});
     }
+
+    setActiveState();
   }
 
   /* ══════════════════════════════════════════
      4. COLOR PILLS
   ══════════════════════════════════════════ */
   function initColorPills(){
-    const pills = document.querySelectorAll('.colorPills span');
-    pills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        pills.forEach(p => p.classList.remove('selected'));
-        pill.classList.add('selected');
-      });
-    });
+    // Color pills are synchronized inside initGallery().
   }
 
   /* ══════════════════════════════════════════

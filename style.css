@@ -773,3 +773,71 @@ h1 span{
   }
   .reveal,.stagger>*{opacity:1;transform:none}
 }
+
+
+/* V6 fix — gallery photos separated from included-item photos */
+.colorPills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px;
+}
+
+.colorPill{
+  appearance:none;
+  border:1px solid rgba(224,205,190,.95);
+  background:#fffdf9;
+  color:#37241d;
+  border-radius:999px;
+  padding:10px 14px;
+  font:inherit;
+  font-weight:700;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:transform .22s cubic-bezier(.2,.8,.2,1), box-shadow .22s cubic-bezier(.2,.8,.2,1), background .22s cubic-bezier(.2,.8,.2,1);
+}
+
+.colorPill:hover{
+  transform:translateY(-1px);
+  box-shadow:0 12px 28px rgba(80,47,26,.08);
+}
+
+.colorPill.selected{
+  background:#f4e7db;
+  border-color:#b9855d;
+  color:#744529;
+  box-shadow:0 10px 24px rgba(116,69,41,.12);
+}
+
+.swatch{
+  width:16px;
+  height:16px;
+  border-radius:999px;
+  border:1px solid rgba(116,69,41,.18);
+  display:inline-block;
+}
+
+.swatchBeige{background:#c9a17e;}
+.swatchRose{background:#c87878;}
+.swatchSage{background:#718477;}
+
+.mainProductImage img{
+  transition:opacity .16s ease;
+}
+
+.thumbButton img{
+  object-fit:cover;
+}
+
+@media(max-width:820px){
+  .colorPills{
+    gap:8px;
+  }
+
+  .colorPill{
+    padding:9px 11px;
+    font-size:13px;
+  }
+}
