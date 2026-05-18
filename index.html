@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amas Baby | Essentiels bébé naturels</title>
   <meta name="description" content="Amas Baby sélectionne des essentiels bébé doux, sûrs et de qualité." />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <!-- Open Graph pour partages sociaux -->
+  <meta property="og:title" content="Amas Baby | Essentiels bébé naturels" />
+  <meta property="og:description" content="Des produits sûrs, durables et conçus pour accompagner bébé à chaque étape de ses premiers moments." />
+  <meta property="og:image" content="hero.jpg" />
+  <meta property="og:type" content="website" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body id="home">
@@ -20,7 +26,6 @@
     <button class="menuBtn" aria-label="Menu">
       <svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
     </button>
-
     <a href="#home" class="logoLink" aria-label="Amas Baby accueil">
       <img src="logo.png" alt="Amas Baby" />
     </a>
@@ -33,19 +38,16 @@
         <p class="eyebrow">Pensé pour les premiers moments</p>
         <h1>Des essentiels<br>naturels pour bébé,<br><span>avec amour ♡</span></h1>
         <p class="heroText">Des produits sûrs, durables et conçus pour accompagner bébé à chaque étape de ses premiers moments.</p>
-
         <div class="actions">
           <a class="amazonBtn" href="https://www.amazon.ca/" target="_blank" rel="noreferrer">
             <span>Acheter sur Amazon</span>
-            <span class="amazonWord">amazon</span>
           </a>
           <a class="outlineBtn" href="#collections">En savoir plus</a>
         </div>
       </div>
-
       <div class="heroImage">
         <img src="hero.jpg" alt="Kit repas bébé naturel" />
-        <div class="badge">Naturel<br>& Durable</div>
+        <div class="badge">Naturel<br>&amp; Durable</div>
       </div>
     </section>
 
@@ -75,19 +77,19 @@
 
       <div class="productRail">
         <article class="productCard">
-          <img src="product-plate.jpg" alt="Assiette compartimentée" />
+          <div class="imgWrap"><img src="product-plate.jpg" alt="Assiette compartimentée" /></div>
           <h3>Assiette compartimentée</h3>
         </article>
         <article class="productCard">
-          <img src="product-bowl.jpg" alt="Bol en bambou" />
+          <div class="imgWrap"><img src="product-bowl.jpg" alt="Bol en bambou" /></div>
           <h3>Bol en bambou</h3>
         </article>
         <article class="productCard">
-          <img src="product-bib.jpg" alt="Bavoir en silicone" />
+          <div class="imgWrap"><img src="product-bib.jpg" alt="Bavoir en silicone" /></div>
           <h3>Bavoir en silicone</h3>
         </article>
         <article class="productCard">
-          <img src="product-kit.jpg" alt="Kit complet" />
+          <div class="imgWrap"><img src="product-kit.jpg" alt="Kit complet" /></div>
           <h3>Kit complet</h3>
         </article>
       </div>
@@ -95,7 +97,6 @@
 
     <section id="collections" class="collections">
       <h2>Des collections à venir ♡</h2>
-
       <div class="collectionGrid">
         <article class="collectionCard activeCollection">
           <a href="repas.html" class="cardLink" aria-label="Découvrir la catégorie repas">
@@ -106,7 +107,6 @@
             </div>
           </a>
         </article>
-
         <article class="collectionCard">
           <img src="collection-sleep.jpg" alt="Collection sommeil" />
           <div class="collectionLabel">
@@ -114,7 +114,6 @@
             <p>Bientôt disponible</p>
           </div>
         </article>
-
         <article class="collectionCard">
           <img src="collection-bath.jpg" alt="Collection bain" />
           <div class="collectionLabel">
@@ -122,7 +121,6 @@
             <p>Bientôt disponible</p>
           </div>
         </article>
-
         <article class="collectionCard">
           <img src="collection-toys.jpg" alt="Collection jouets" />
           <div class="collectionLabel">
@@ -130,7 +128,6 @@
             <p>Bientôt disponible</p>
           </div>
         </article>
-
         <article class="collectionCard">
           <img src="collection-accessories.jpg" alt="Collection accessoires" />
           <div class="collectionLabel">
@@ -163,12 +160,19 @@
 
   <footer id="contact" class="footer">
     <a href="#home"><img src="logo.png" alt="Amas Baby" /></a>
+    <nav class="footerLinks" aria-label="Liens footer">
+      <a href="repas.html">Nos produits</a>
+      <a href="#collections">Collections</a>
+      <a href="#about">À propos</a>
+      <a href="mailto:contact@amasbaby.com">Contact</a>
+    </nav>
     <p>Amas Baby sélectionne des essentiels bébé doux, sûrs et de qualité, pour des moments inoubliables.</p>
     <div class="socials" aria-label="Réseaux sociaux">
       <a href="#" aria-label="Instagram"><img src="social-instagram.png" alt="Instagram"></a>
       <a href="#" aria-label="TikTok"><img src="social-tiktok.png" alt="TikTok"></a>
       <a href="#" aria-label="Facebook"><img src="social-facebook.png" alt="Facebook"></a>
     </div>
+    <p class="footerCopy">© 2025 Amas Baby. Tous droits réservés.</p>
   </footer>
 
   <nav class="bottomNav" aria-label="Navigation mobile">

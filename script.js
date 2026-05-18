@@ -1,4 +1,3 @@
-
 (function(){
   const translations = {
     "Livraison rapide via Amazon": "Fast delivery via Amazon",
@@ -29,11 +28,13 @@
     "Service client": "Customer service",
     "À votre écoute": "Here to help",
     "Amas Baby sélectionne des essentiels bébé doux, sûrs et de qualité, pour des moments inoubliables.": "Amas Baby selects soft, safe, quality baby essentials for unforgettable moments.",
-    "Produit": "Product",
+    "Nos produits": "Our products",
     "Collections": "Collections",
     "À propos": "About",
     "Contact": "Contact",
     "Accueil": "Home",
+    "Produit": "Product",
+    "© 2025 Amas Baby. Tous droits réservés.": "© 2025 Amas Baby. All rights reserved.",
     "Catégorie repas": "Meals category",
     "Les essentiels repas": "Mealtime essentials",
     "pour accompagner bébé avec douceur": "to support baby with softness",
@@ -47,17 +48,16 @@
     "Un coffret complet et durable pour accompagner bébé à chaque repas. Conçu avec des matériaux naturels et sûrs, pour des moments simples, doux et agréables.": "A complete and durable set to support baby at every meal. Made with natural and safe materials for simple, soft and pleasant mealtimes.",
     "Inclus dans le coffret": "Included in the set",
     "Assiette": "Plate",
-    "bambou": "bamboo",
+    "bambou naturel": "natural bamboo",
     "Bol": "Bowl",
-    "ventouse": "suction",
     "Cuillère": "Spoon",
-    "silicone": "silicone",
+    "bambou & silicone": "bamboo & silicone",
     "Fourchette": "Fork",
     "Bavoir": "Bib",
-    "récupérateur": "catcher",
-    "Pourquoi les parents l’adorent": "Why parents love it",
+    "silicone alimentaire": "food-grade silicone",
+    "Pourquoi les parents l'adorent": "Why parents love it",
     "Sans BPA": "BPA free",
-    "et sûr": "and safe",
+    "et sûr pour bébé": "and safe for baby",
     "Bambou": "Bamboo",
     "naturel": "natural",
     "Facile": "Easy",
@@ -71,10 +71,20 @@
     "Compatible lave-vaisselle ?": "Dishwasher safe?",
     "Les éléments silicone sont faciles à nettoyer. Pour le bambou, un lavage doux à la main est recommandé.": "Silicone pieces are easy to clean. For bamboo, gentle hand washing is recommended.",
     "Le coffret est-il livré via Amazon ?": "Is the set delivered via Amazon?",
-    "Oui, le bouton “Voir sur Amazon” dirige vers la fiche produit Amazon.": "Yes, the “View on Amazon” button leads to the Amazon product page."
+    "Oui, le bouton \"Voir sur Amazon\" dirige vers la fiche produit Amazon.": "Yes, the \"View on Amazon\" button leads to the Amazon product page.",
+    "Naturel": "Natural",
+    "& Durable": "& Durable",
+    "Repas\nBébé": "Baby\nMeals",
+    "Disponible": "Available",
+    "Sans BPA": "BPA Free",
+    "Matériaux naturels": "Natural materials",
+    "Facile à nettoyer": "Easy to clean",
+    "Conçu avec amour": "Made with love"
   };
 
-  const reverseTranslations = Object.fromEntries(Object.entries(translations).map(([fr,en]) => [en,fr]));
+  const reverseTranslations = Object.fromEntries(
+    Object.entries(translations).map(([fr,en]) => [en,fr])
+  );
 
   function walkTextNodes(root, callback){
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
@@ -114,7 +124,7 @@
   }
 
   function initAmasGallery(){
-    const galleryImages = ["product-plate.jpg", "product-bowl.jpg", "product-bib.jpg", "product-kit.jpg"];
+    const galleryImages = ["product-plate.jpg","product-bowl.jpg","product-bib.jpg","product-kit.jpg"];
     let galleryIndex = 0;
 
     const mainPhoto = document.getElementById("mainProductPhoto");
@@ -126,13 +136,27 @@
 
     function updateGallery(index){
       galleryIndex = (index + galleryImages.length) % galleryImages.length;
-      mainPhoto.src = galleryImages[galleryIndex];
+      mainPhoto.style.opacity = "0";
+      setTimeout(() => {
+        mainPhoto.src = galleryImages[galleryIndex];
+        mainPhoto.style.opacity = "1";
+      }, 180);
       thumbs.forEach((thumb, i) => thumb.classList.toggle("active", i === galleryIndex));
     }
 
     prev.addEventListener("click", () => updateGallery(galleryIndex - 1));
     next.addEventListener("click", () => updateGallery(galleryIndex + 1));
     thumbs.forEach((thumb, i) => thumb.addEventListener("click", () => updateGallery(i)));
+  }
+
+  function initColorPills(){
+    const pills = document.querySelectorAll(".colorPills span");
+    pills.forEach(pill => {
+      pill.addEventListener("click", () => {
+        pills.forEach(p => p.classList.remove("selected"));
+        pill.classList.add("selected");
+      });
+    });
   }
 
   function initSmoothScroll(){
@@ -150,6 +174,7 @@
   function init(){
     initLanguageToggle();
     initAmasGallery();
+    initColorPills();
     initSmoothScroll();
   }
 
